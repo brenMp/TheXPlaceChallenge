@@ -1,0 +1,138 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-06-04T22:36:00.374Z",
+    "end": "2022-06-04T22:36:01.305Z",
+    "duration": 931,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "aa8f2170-6cff-4798-9534-94d006accea9",
+      "title": "",
+      "fullFile": "cypress/integration/user.spec.js",
+      "file": "cypress/integration/user.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "644bc497-b480-4cc8-8a14-4d33a7cba6ec",
+          "title": "API TESTS",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Should print email address",
+              "fullTitle": "API TESTS Should print email address",
+              "timedOut": null,
+              "duration": 309,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getUser().then(res => {\n  let userId = randomUserId + 1;\n  cy.log('User Id: ' + userId);\n  cy.log('User email: ' + res.body[randomUserId].email);\n});",
+              "err": {},
+              "uuid": "0dcb90e3-da36-41a2-8e70-f9b8e7ac5f2a",
+              "parentUUID": "644bc497-b480-4cc8-8a14-4d33a7cba6ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should get post ids between 1 and 100",
+              "fullTitle": "API TESTS Should get post ids between 1 and 100",
+              "timedOut": null,
+              "duration": 129,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getPosts().then(res => {\n  let userId = randomUserId + 1;\n  cy.getPosts(userId).then(res => {\n    let lengthArray = res.body.length;\n    let max = lengthArray;\n    cy.task(\"randomNumber\", max).then(number => {\n      expect(res.body[number].id).to.be.within(1, 100);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "19a4ca5f-8099-41fd-90cc-a5840fa4945f",
+              "parentUUID": "644bc497-b480-4cc8-8a14-4d33a7cba6ec",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should post a new register",
+              "fullTitle": "API TESTS Should post a new register",
+              "timedOut": null,
+              "duration": 455,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.PostNewRegister().then(res => {\n  expect(res.status).to.not.eq(200);\n});",
+              "err": {},
+              "uuid": "dd230c59-8492-47d5-8eff-0c11e15e3bc3",
+              "parentUUID": "644bc497-b480-4cc8-8a14-4d33a7cba6ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0dcb90e3-da36-41a2-8e70-f9b8e7ac5f2a",
+            "19a4ca5f-8099-41fd-90cc-a5840fa4945f",
+            "dd230c59-8492-47d5-8eff-0c11e15e3bc3"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 893,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
